@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Timesheet;
 use DateTimeZone;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Query;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,14 +17,8 @@ class DashboardController extends AbstractController
      */
     public function index(): Response
     {
-        $query = $this->getDoctrine()
-            ->getRepository(Timesheet::class)
-            ->createQueryBuilder('t')
-            ->orderBy('t.id', 'DESC')
-            ->setMaxResults(1)
-            ->getQuery();
-
-        $result = $query->getResult(Query::HYDRATE_ARRAY);
+        $em = $this->getDoctrine()->getManager();
+        $result = $em->getRepository(Timesheet::class)->findLatestShift();
 
         return $this->render('dashboard/index.html.twig', [
             'timesheet' => $result,
