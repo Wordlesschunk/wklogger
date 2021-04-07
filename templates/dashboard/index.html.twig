@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DashboardController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Timesheet dashboard ✅</h1>
+
+{% if timesheet is empty %}
+    <button><a href="{{ path('app_new_timesheet') }}">start</a></button>
+{% endif %}
+
+{% for data in timesheet %}
+    {% if data.date|date('Y-m-d') != 'now'|date('Y-m-d') %}
+        <button><a href="{{ path('app_new_timesheet') }}">start</a></button>
+    {% elseif data.endTime is not null %}
+        You've already done a shift today!
+    {% else %}
+        <button><a href="{{ path('app_end_timesheet') }}">stop</a></button>
+    {% endif %}
+{% endfor %}
+</div>
+{% endblock %}
+
+{#Shift Started At: {{ data.startTime|date('H:i') }}#}
+{#Shift Started At: {{ data.endTime|date('H:i') }}#}
