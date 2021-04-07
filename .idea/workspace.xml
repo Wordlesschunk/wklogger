@@ -12,11 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9103e740-9fab-499d-963f-744fe8a3bacd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DashboardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/dashboard/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,6 +103,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -130,7 +127,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1617818097088</updated>
-      <workItem from="1617818099012" duration="1780000" />
+      <workItem from="1617818099012" duration="3228000" />
     </task>
     <servers />
   </component>
@@ -149,6 +146,14 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617820624893">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/-155.-1080.1920.1080@0.0.1440.900" timestamp="1617820624893" />
+    <state width="307" height="457" key="HiddenNamespacesPopup" timestamp="1617820629549">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="307" height="457" key="HiddenNamespacesPopup/0.0.1440.900/-155.-1080.1920.1080@0.0.1440.900" timestamp="1617820629549" />
     <state x="385" y="196" key="search.everywhere.popup" timestamp="1617818105721">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

@@ -3,16 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Timesheet;
-use Carbon\Carbon;
-use Cassandra\Time;
-use DateTimeInterface;
 use DateTimeZone;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Serializer\Serializer;
 
 class DashboardController extends AbstractController
 {
@@ -21,7 +18,6 @@ class DashboardController extends AbstractController
      */
     public function index(): Response
     {
-
         $query = $this->getDoctrine()
             ->getRepository(Timesheet::class)
             ->createQueryBuilder('t')
@@ -31,29 +27,15 @@ class DashboardController extends AbstractController
 
         $result = $query->getResult(Query::HYDRATE_ARRAY);
 
-
-        //duration test
-
-//        $start = Carbon::parse($result[0]['startTime']);
-//        $end = Carbon::parse($result[0]['endTime']);
-//        $hours = $end->diffInHours($start);
-//        $seconds = $end->diffInSeconds($start);
-//
-//        dd($hours . ':' . $seconds);
-
-
         return $this->render('dashboard/index.html.twig', [
-            'controller_name' => 'DashboardController',
             'timesheet' => $result,
         ]);
     }
 
     /**
-     * @Route("/new", name="app_new_timesheet")
-     *
+     * @Route("/new", name="app_timesheet_start_shift")
      * @param EntityManagerInterface $entityManager
-     *
-     * @return Response
+     * @return RedirectResponse
      */
     public function start(EntityManagerInterface $entityManager)
     {
@@ -67,8 +49,9 @@ class DashboardController extends AbstractController
     }
 
     /**
-     * @Route("/end", name="app_end_timesheet")
+     * @Route("/end", name="app_timesheet_end_shift")
      * @param EntityManagerInterface $entityManager
+     * @return RedirectResponse
      */
     public function end(EntityManagerInterface $entityManager)
     {
@@ -79,38 +62,4 @@ class DashboardController extends AbstractController
 
         return $this->redirectToRoute('app_dashboard');
     }
-
-//
-//    /**
-//     * @Route("/get", name="app_get_timesheet")
-//     * @param EntityManagerInterface $entityManager
-//     */
-//    public function timeWorked(EntityManagerInterface $entityManager)
-//    {
-//
-//        $query = $this->getDoctrine()
-//            ->getRepository(Timesheet::class)
-//            ->createQueryBuilder('t')
-//            ->orderBy('t.id', 'DESC')
-//            ->setMaxResults(1)
-//            ->getQuery();
-//
-//        $result = $query->getResult(Query::HYDRATE_ARRAY);
-//
-//
-//        //duration test
-//
-////        $start = Carbon::parse($result[0]['startTime']);
-////        $end = Carbon::parse($result[0]['endTime']);
-////        $hours = $end->diffInHours($start);
-////        $seconds = $end->diffInSeconds($start);
-////
-////        dd($hours . ':' . $seconds);
-//
-//
-//        return $this->render('dashboard/index.html.twig', [
-//            'controller_name' => 'DashboardController',
-//            'timesheet' => $result,
-//        ]);
-//    }
 }
