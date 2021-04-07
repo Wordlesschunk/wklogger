@@ -23,12 +23,12 @@ class Timesheet
     private $date;
 
     /**
-     * @ORM\Column(type="time")
+     * @ORM\Column(type="string")
      */
     private $startTime;
 
     /**
-     * @ORM\Column(type="time", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $endTime;
 
@@ -49,24 +49,24 @@ class Timesheet
         return $this;
     }
 
-    public function getStartTime(): ?\DateTimeInterface
+    public function getStartTime()
     {
         return $this->startTime;
     }
 
-    public function setStartTime(\DateTimeInterface $startTime): self
+    public function setStartTime($startTime): self
     {
         $this->startTime = $startTime;
 
         return $this;
     }
 
-    public function getEndTime(): ?\DateTimeInterface
+    public function getEndTime()
     {
         return $this->endTime;
     }
 
-    public function setEndTime(?\DateTimeInterface $endTime): self
+    public function setEndTime($endTime): self
     {
         $this->endTime = $endTime;
 

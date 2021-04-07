@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Timesheet;
-use DateTimeZone;
+use Carbon\Carbon;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -36,7 +36,7 @@ class DashboardController extends AbstractController
     {
         $newTimesheetEntry = new Timesheet();
         $newTimesheetEntry->setDate(new \DateTime('today'));
-        $newTimesheetEntry->setStartTime(new \DateTime('now'));
+        $newTimesheetEntry->setStartTime(date('H:i'));
         $entityManager->persist($newTimesheetEntry);
         $entityManager->flush();
 
@@ -52,7 +52,7 @@ class DashboardController extends AbstractController
     {
         $currentDate = new \DateTime('today');
         $repository = $entityManager->getRepository(Timesheet::class)->findOneBy(['date' => $currentDate]);
-        $repository->setEndTime(new \DateTime('now'));
+        $repository->setEndTime(date('H:i'));
         $entityManager->flush();
 
         return $this->redirectToRoute('app_dashboard');
@@ -69,9 +69,20 @@ class DashboardController extends AbstractController
         $serializer = new Serializer(array(new ObjectNormalizer()));
         $serializedData = $serializer->normalize($result);
 
-        foreach($serializedData as $result) {
-            dump($result['startTime'], $result['endTime']);
-        }
+        foreach($serializedData as $key => $result) {
+
+            $startTime = $result['startTime'];
+            $endTime = $result['endTime'];
+            list($hours, $minutes) = explode(':', $startTime);
+            $firstTimestamp = mktime($hours, $minutes);
+            list($hours, $minutes) = explode(':', $endTime);
+            $secondTimestamp = mktime($hours, $minutes);
+            $firstTimestamp > $secondTimestamp?$seconds = $firstTimestamp - $secondTimestamp:$seconds = $secondTimestamp - $firstTimestamp;
+            $minutes = ($seconds / 60) % 60;
+            $hours = floor($seconds / (60 * 60));
+
+            $serializedData[$key]['duration'] = "$hours Hours $minutes Mintues";
+    }
 
         return $this->render('dashboard/shiftlog.html.twig', [
             'shiftHistory' => $serializedData,

@@ -10,6 +10,7 @@
 
 <div class="wrapper">
     <h1>Timesheet dashboard</h1>
+    <a class="btn btn-primary" href="{{ path('app_shift_log') }}" role="button">Shift Log</a>
 
     {% if timesheet is empty %}
         <a class="btn btn-primary" href="{{ path('app_timesheet_start_shift') }}" role="button">Start Shift</a>

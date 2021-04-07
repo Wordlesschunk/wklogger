@@ -11,13 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9103e740-9fab-499d-963f-744fe8a3bacd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/dashboard/shiftlog.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/wklogger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/wklogger.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Timesheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Timesheet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/shiftlog.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/shiftlog.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,18 +163,22 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/-155.-1080.1920.1080@0.0.1440.900" timestamp="1617820624893" />
-    <state x="458" y="209" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617822115288">
+    <state x="458" y="209" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617826732609">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="458" y="209" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900/-155.-1080.1920.1080@0.0.1440.900" timestamp="1617822115288" />
+    <state x="458" y="209" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900/-155.-1080.1920.1080@0.0.1440.900" timestamp="1617826732609" />
     <state width="307" height="457" key="HiddenNamespacesPopup" timestamp="1617820629549">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="307" height="457" key="HiddenNamespacesPopup/0.0.1440.900/-155.-1080.1920.1080@0.0.1440.900" timestamp="1617820629549" />
-    <state x="398" y="180" key="NewPhpClassDialog" timestamp="1617823150323">
+    <state x="398" y="180" key="NewPhpClassDialog" timestamp="1617826739501">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="398" y="180" key="NewPhpClassDialog/0.0.1440.900/-155.-1080.1920.1080@0.0.1440.900" timestamp="1617823150323" />
+    <state x="398" y="180" key="NewPhpClassDialog/0.0.1440.900/-155.-1080.1920.1080@0.0.1440.900" timestamp="1617826739501" />
+    <state x="343" y="64" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1617826731079">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="343" y="64" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900/-155.-1080.1920.1080@0.0.1440.900" timestamp="1617826731079" />
     <state x="421" y="205" width="597" height="490" key="find.popup" timestamp="1617825211908">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
