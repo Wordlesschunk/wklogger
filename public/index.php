@@ -16,6 +16,7 @@ if ($_SERVER['APP_DEBUG']) {
 }
 
 $kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
+date_default_timezone_set( 'Europe/London' );
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();

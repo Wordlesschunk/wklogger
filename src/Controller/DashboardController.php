@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class DashboardController extends AbstractController
 {
@@ -34,7 +36,7 @@ class DashboardController extends AbstractController
     {
         $newTimesheetEntry = new Timesheet();
         $newTimesheetEntry->setDate(new \DateTime('today'));
-        $newTimesheetEntry->setStartTime(new \DateTime('now', new DateTimeZone('Europe/London')));
+        $newTimesheetEntry->setStartTime(new \DateTime('now'));
         $entityManager->persist($newTimesheetEntry);
         $entityManager->flush();
 
@@ -54,5 +56,25 @@ class DashboardController extends AbstractController
         $entityManager->flush();
 
         return $this->redirectToRoute('app_dashboard');
+    }
+
+    /**
+     * @Route("/log", name="app_shift_log")
+     * @return Response
+     */
+    public function shiftLog(): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        $result = $em->getRepository(Timesheet::class)->findAll();
+        $serializer = new Serializer(array(new ObjectNormalizer()));
+        $serializedData = $serializer->normalize($result);
+
+        foreach($serializedData as $result) {
+            dump($result['startTime'], $result['endTime']);
+        }
+
+        return $this->render('dashboard/shiftlog.html.twig', [
+            'shiftHistory' => $serializedData,
+        ]);
     }
 }
