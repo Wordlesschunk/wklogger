@@ -234,9 +234,6 @@
     "symfony/polyfill-php80": {
         "version": "v1.22.1"
     },
-    "symfony/profiler-pack": {
-        "version": "v1.0.5"
-    },
     "symfony/property-access": {
         "version": "v5.2.4"
     },

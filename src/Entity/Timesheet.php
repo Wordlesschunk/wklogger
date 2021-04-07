@@ -18,7 +18,7 @@ class Timesheet
     private $id;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="string")
      */
     private $date;
 
@@ -37,12 +37,12 @@ class Timesheet
         return $this->id;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getDate()
     {
         return $this->date;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setDate($date): self
     {
         $this->date = $date;
 

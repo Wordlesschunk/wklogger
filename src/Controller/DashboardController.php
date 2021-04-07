@@ -35,7 +35,7 @@ class DashboardController extends AbstractController
     public function start(EntityManagerInterface $entityManager)
     {
         $newTimesheetEntry = new Timesheet();
-        $newTimesheetEntry->setDate(new \DateTime('today'));
+        $newTimesheetEntry->setDate(date('d-m-Y'));
         $newTimesheetEntry->setStartTime(date('H:i'));
         $entityManager->persist($newTimesheetEntry);
         $entityManager->flush();
@@ -50,7 +50,7 @@ class DashboardController extends AbstractController
      */
     public function end(EntityManagerInterface $entityManager)
     {
-        $currentDate = new \DateTime('today');
+        $currentDate = date('d-m-Y');
         $repository = $entityManager->getRepository(Timesheet::class)->findOneBy(['date' => $currentDate]);
         $repository->setEndTime(date('H:i'));
         $entityManager->flush();
