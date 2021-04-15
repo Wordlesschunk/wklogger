@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
+use function Symfony\Component\String\s;
 
 class DashboardController extends AbstractController
 {
@@ -36,7 +37,7 @@ class DashboardController extends AbstractController
     {
         $newTimesheetEntry = new Timesheet();
         $newTimesheetEntry->setDate(date('d-m-Y'));
-        $newTimesheetEntry->setStartTime(date('H:i'));
+        $newTimesheetEntry->setStartTime(new \DateTime('now'));
         $entityManager->persist($newTimesheetEntry);
         $entityManager->flush();
 
@@ -52,7 +53,7 @@ class DashboardController extends AbstractController
     {
         $currentDate = date('d-m-Y');
         $repository = $entityManager->getRepository(Timesheet::class)->findOneBy(['date' => $currentDate]);
-        $repository->setEndTime(date('H:i'));
+        $repository->setEndTime(new \DateTime('now'));
         $entityManager->flush();
 
         return $this->redirectToRoute('app_dashboard');
@@ -64,28 +65,21 @@ class DashboardController extends AbstractController
      */
     public function shiftLog(): Response
     {
-        $em = $this->getDoctrine()->getManager();
-        $result = $em->getRepository(Timesheet::class)->findAll();
-        $serializer = new Serializer(array(new ObjectNormalizer()));
-        $serializedData = $serializer->normalize($result);
+        $query = $this->getDoctrine()->getRepository(Timesheet::class)
+            ->createQueryBuilder('ts')
+            ->getQuery();
 
-        foreach($serializedData as $key => $result) {
+        $result = $query->getArrayResult();
 
-            $startTime = $result['startTime'];
-            $endTime = $result['endTime'];
-            list($hours, $minutes) = explode(':', $startTime);
-            $firstTimestamp = mktime($hours, $minutes);
-            list($hours, $minutes) = explode(':', $endTime);
-            $secondTimestamp = mktime($hours, $minutes);
-            $firstTimestamp > $secondTimestamp?$seconds = $firstTimestamp - $secondTimestamp:$seconds = $secondTimestamp - $firstTimestamp;
-            $minutes = ($seconds / 60) % 60;
-            $hours = floor($seconds / (60 * 60));
-
-            $serializedData[$key]['duration'] = "$hours Hours $minutes Mintues";
-    }
+        foreach ($result as $r) {
+            $startTime = $r['startTime'];
+            $endTime = $r['endTime'];
+            $interval = $startTime->diff($endTime);
+            dd($interval->format('%h Hours %i Minutes'));
+        }
 
         return $this->render('dashboard/shiftlog.html.twig', [
-            'shiftHistory' => $serializedData,
+            'shiftHistory' => 'hello',
         ]);
     }
 }

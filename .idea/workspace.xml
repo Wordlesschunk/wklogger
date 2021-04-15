@@ -11,14 +11,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9103e740-9fab-499d-963f-744fe8a3bacd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Timesheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Timesheet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/shiftlog.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/shiftlog.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -137,6 +142,7 @@
       <option name="presentableId" value="Default" />
       <updated>1617818097088</updated>
       <workItem from="1617818099012" duration="6706000" />
+      <workItem from="1618516189535" duration="3373000" />
     </task>
     <servers />
   </component>
@@ -153,12 +159,14 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617820624893">
+    <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618516810946">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/-155.-1080.1920.1080@0.0.1440.900" timestamp="1617820624893" />
+    <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1618516810946" />
     <state x="458" y="209" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617826732609">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -171,6 +179,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="398" y="180" key="NewPhpClassDialog/0.0.1440.900/-155.-1080.1920.1080@0.0.1440.900" timestamp="1617826739501" />
+    <state x="-7" y="144" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1618516357264">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="-7" y="144" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1440.900@0.0.1440.900" timestamp="1618516357264" />
     <state x="343" y="64" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1617826731079">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

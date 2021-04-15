@@ -23,12 +23,12 @@ class Timesheet
     private $date;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="datetime")
      */
     private $startTime;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $endTime;
 
