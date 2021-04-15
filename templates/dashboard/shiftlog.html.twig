@@ -10,9 +10,9 @@
 
 <div class="wrapper">
     <h1>Shift History</h1>
-    {#    {% for data in shiftHistory %}#}
-    {#        {{ data.date }} You worked: {{ data.duration }}#}
-    {#        <br>#}
-    {#    {% endfor %}#}
+        {% for data in shiftHistory %}
+            {{ data.date }} You worked: {{ data.duration }}
+            <br>
+        {% endfor %}
 </div>
 {% endblock %}

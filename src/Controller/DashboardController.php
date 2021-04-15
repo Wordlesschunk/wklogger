@@ -65,21 +65,23 @@ class DashboardController extends AbstractController
      */
     public function shiftLog(): Response
     {
+        $result = [];
+
         $query = $this->getDoctrine()->getRepository(Timesheet::class)
             ->createQueryBuilder('ts')
             ->getQuery();
 
         $result = $query->getArrayResult();
 
-        foreach ($result as $r) {
+        foreach ($result as $key => $r) {
             $startTime = $r['startTime'];
             $endTime = $r['endTime'];
             $interval = $startTime->diff($endTime);
-            dd($interval->format('%h Hours %i Minutes'));
+            $result[$key]['duration'] = $interval->format('%h Hours %i Minutes');
         }
 
         return $this->render('dashboard/shiftlog.html.twig', [
-            'shiftHistory' => 'hello',
+            'shiftHistory' => $result,
         ]);
     }
 }
