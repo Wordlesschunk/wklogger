@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Timesheet;
+use App\Repository\TimesheetRepository;
 use Carbon\Carbon;
+use Carbon\CarbonInterval;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -62,7 +64,7 @@ class DashboardController extends AbstractController
      * @Route("/log", name="app_shift_log")
      * @return Response
      */
-    public function shiftLog(ChartBuilderInterface $chartBuilder): Response
+    public function shiftLog(ChartBuilderInterface $chartBuilder, TimesheetRepository $ts): Response
     {
         $result = [];
 
@@ -73,24 +75,23 @@ class DashboardController extends AbstractController
         $result = $query->getArrayResult();
 
         foreach ($result as $key => $r) {
-            $startTime = $r['startTime'];
-            $endTime = $r['endTime'];
-            $interval = $startTime->diff($endTime);
-            $result[$key]['duration'] = $interval->format('%h Hours %i Minutes');
+            $timeWorked = $ts->calculateTimeBetweenHM($r['startTime'], $r['endTime']);
+            $result[$key]['duration'] = $timeWorked;
         }
 
-        $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
+        $chart = $chartBuilder->createChart(Chart::TYPE_BAR);
         $chart->setData([
-            'labels' => ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            'labels' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
             'datasets' => [
                 [
-                    'label' => 'Sales!',
+                    'label' => 'Hrs Worked Weekly',
                     'backgroundColor' => 'rgb(255, 99, 132)',
                     'borderColor' => 'rgb(255, 99, 132)',
-                    'data' => [522, 1500, 2250, 2197, 2345, 3122, 3099],
+                    'data' => [0, 1, 2, 3, 4],
                 ],
             ],
         ]);
+
         $chart->setOptions([
             'scales' => [
                 'yAxes' => [[
@@ -107,4 +108,39 @@ class DashboardController extends AbstractController
             'chart' => $chart
         ]);
     }
+
+
+    /**
+     * @Route("/wk", name="app_shift_wk")
+     * @return Response
+     */
+    public function wklog(TimesheetRepository $ts): Response
+    {
+        $start_week = date("d-m-Y",strtotime('monday this week'));
+        $end_week = date("d-m-Y",strtotime('sunday this week'));
+
+        $query = $this->getDoctrine()->getRepository(Timesheet::class)
+            ->createQueryBuilder('t')
+            ->where('t.date >= :start')
+            ->andWhere('t.date <= :end')
+            ->setParameter('start', $start_week)
+            ->setParameter('end', $end_week)
+            ->getQuery();
+
+        $result = $query->getArrayResult();
+        $totalSeconds = 0;
+
+        foreach ($result as $key => $r) {
+            $start = Carbon::parse($r['startTime']);
+            $end = Carbon::parse($r['endTime']);
+            $totalDuration = $end->diffInSeconds($start);
+            $totalSeconds += $totalDuration;
+        }
+        $totalTimeWorkedPerWk = CarbonInterval::seconds($totalSeconds)->cascade()->forHumans();
+        
+        return $this->render('dashboard/wk.html.twig', [
+            'shiftHistory' => $result,
+        ]);
+    }
+
 }

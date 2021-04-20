@@ -32,6 +32,19 @@ class TimesheetRepository extends ServiceEntityRepository
         ->getResult(Query::HYDRATE_ARRAY);
     }
 
+    /**
+     * @param $startTime
+     * @param $endTime
+     *
+     * @return mixed
+     */
+    public function calculateTimeBetweenHM($startTime, $endTime)
+    {
+            $interval = $startTime->diff($endTime);
+            return $interval->format('%h Hours %i Minutes');
+//            return $interval->format('%h Hours %i Minutes');
+    }
+
 //    public function findByExampleField($value)
 //    {
 //        return $this->createQueryBuilder('t')
@@ -43,7 +56,6 @@ class TimesheetRepository extends ServiceEntityRepository
 //            ->getResult()
 //        ;
 //    }
-
 
     /*
     public function findOneBySomeField($value): ?Timesheet
