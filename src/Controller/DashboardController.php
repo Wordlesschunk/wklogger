@@ -138,7 +138,7 @@ class DashboardController extends AbstractController
         }
         $totalTimeWorkedPerWk = CarbonInterval::seconds($totalSeconds)->cascade()->forHumans();
         
-        return $this->render('dashboard/wk.html.twig', [
+        return $this->render('dashboard/dashboard.html.twig', [
             'shiftHistory' => $result,
         ]);
     }
