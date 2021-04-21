@@ -9,7 +9,7 @@
 import './styles/app.css';
 import './styles/dashboard.css'
 
-import './js/sb-customizer.js';
+// import './js/sb-customizer.js';
 import './js/scripts.js';
 
 // start the Stimulus application
