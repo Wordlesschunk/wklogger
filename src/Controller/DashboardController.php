@@ -3,9 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Timesheet;
-use App\Repository\TimesheetRepository;
 use Carbon\Carbon;
-use Carbon\CarbonInterval;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -64,7 +62,7 @@ class DashboardController extends AbstractController
      * @Route("/log", name="app_shift_log")
      * @return Response
      */
-    public function shiftLog(ChartBuilderInterface $chartBuilder, TimesheetRepository $ts): Response
+    public function shiftLog(ChartBuilderInterface $chartBuilder): Response
     {
         $result = [];
 
@@ -75,23 +73,24 @@ class DashboardController extends AbstractController
         $result = $query->getArrayResult();
 
         foreach ($result as $key => $r) {
-            $timeWorked = $ts->calculateTimeBetweenHM($r['startTime'], $r['endTime']);
-            $result[$key]['duration'] = $timeWorked;
+            $startTime = $r['startTime'];
+            $endTime = $r['endTime'];
+            $interval = $startTime->diff($endTime);
+            $result[$key]['duration'] = $interval->format('%h Hours %i Minutes');
         }
 
-        $chart = $chartBuilder->createChart(Chart::TYPE_BAR);
+        $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
         $chart->setData([
-            'labels' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+            'labels' => ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             'datasets' => [
                 [
-                    'label' => 'Hrs Worked Weekly',
+                    'label' => 'Sales!',
                     'backgroundColor' => 'rgb(255, 99, 132)',
                     'borderColor' => 'rgb(255, 99, 132)',
-                    'data' => [0, 1, 2, 3, 4],
+                    'data' => [522, 1500, 2250, 2197, 2345, 3122, 3099],
                 ],
             ],
         ]);
-
         $chart->setOptions([
             'scales' => [
                 'yAxes' => [[
@@ -108,6 +107,7 @@ class DashboardController extends AbstractController
             'chart' => $chart
         ]);
     }
+<<<<<<< HEAD
 
 
     /**
@@ -143,4 +143,6 @@ class DashboardController extends AbstractController
         ]);
     }
 
+=======
+>>>>>>> parent of 6eb99db... Added time between logic
 }
