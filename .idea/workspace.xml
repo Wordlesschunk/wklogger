@@ -29,6 +29,7 @@
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/dashboard/shiftlog.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/shiftlog.html.twig" afterDir="false" />
 >>>>>>> parent of 6eb99db... Added time between logic
+      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
