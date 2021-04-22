@@ -3,26 +3,32 @@
 {% block title %}TimeSheet Dashboard{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-                {% if timesheet is empty %}
-                        <a class="btn btn-primary" href="{{ path('app_timesheet_start_shift') }}" role="button">Start Shift</a>
-                {% endif %}
+<style>
+    .wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
 
-                {% for data in timesheet %}
-                    {% if data.date|date('Y-m-d') != 'now'|date('Y-m-d') %}
-                        <a class="btn btn-primary" href="{{ path('app_timesheet_start_shift') }}" role="button">Start Shift</a>
-                    {% elseif data.endTime is not null %}
-                        <div class="alert alert-danger" role="alert">You've already submitted a shift today!</div>
-                    {% else %}
-                        <a class="btn btn-danger" href="{{ path('app_timesheet_end_shift') }}" role="button">End Shift</a>
-                    {% endif %}
-                {% endfor %}
+<div class="wrapper">
+    <h1>Timesheet dashboard</h1>
+    <a class="btn btn-primary" href="{{ path('app_shift_log') }}" role="button">Shift Log</a>
 
-            <div class="col-lg-12 text-center">
-                <h1 class="mt-5">Title Here</h1>
-            </div>
+    {% if timesheet is empty %}
+        <a class="btn btn-primary" href="{{ path('app_timesheet_start_shift') }}" role="button">Start Shift</a>
+    {% endif %}
 
+<<<<<<< HEAD
         </div>
-
 {% endblock %}
+=======
+    {% for data in timesheet %}
+        {% if data.date|date('Y-m-d') != 'now'|date('Y-m-d') %}
+            <a class="btn btn-primary" href="{{ path('app_timesheet_start_shift') }}" role="button">Start Shift</a>
+        {% elseif data.endTime is not null %}
+            <div class="alert alert-danger" role="alert">You've already submitted a shift today!</div>
+        {% else %}
+            <a class="btn btn-primary" href="{{ path('app_timesheet_end_shift') }}" role="button">End Shift</a>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}
+>>>>>>> parent of 6eb99db... Added time between logic
