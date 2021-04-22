@@ -15,11 +15,8 @@
     {% if timesheet is empty %}
         <a class="btn btn-primary" href="{{ path('app_timesheet_start_shift') }}" role="button">Start Shift</a>
     {% endif %}
-
-<<<<<<< HEAD
         </div>
-{% endblock %}
-=======
+
     {% for data in timesheet %}
         {% if data.date|date('Y-m-d') != 'now'|date('Y-m-d') %}
             <a class="btn btn-primary" href="{{ path('app_timesheet_start_shift') }}" role="button">Start Shift</a>
@@ -31,4 +28,3 @@
     {% endfor %}
 </div>
 {% endblock %}
->>>>>>> parent of 6eb99db... Added time between logic

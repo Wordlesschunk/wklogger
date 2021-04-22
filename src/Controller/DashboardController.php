@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Timesheet;
+use App\Repository\TimesheetRepository;
 use Carbon\Carbon;
+use Carbon\CarbonInterval;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -107,11 +109,10 @@ class DashboardController extends AbstractController
             'chart' => $chart
         ]);
     }
-<<<<<<< HEAD
-
 
     /**
      * @Route("/wk", name="app_shift_wk")
+     * @param TimesheetRepository $ts
      * @return Response
      */
     public function wklog(TimesheetRepository $ts): Response
@@ -143,6 +144,4 @@ class DashboardController extends AbstractController
         ]);
     }
 
-=======
->>>>>>> parent of 6eb99db... Added time between logic
 }
