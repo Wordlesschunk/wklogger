@@ -11,7 +11,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9103e740-9fab-499d-963f-744fe8a3bacd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base_navigation.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/222c108d-4316-4550-8968-262c88db8e29.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/222c108d-4316-4550-8968-262c88db8e29.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/dashboard.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +146,7 @@
       <workItem from="1617818099012" duration="6706000" />
       <workItem from="1618516189535" duration="3373000" />
       <workItem from="1619111535831" duration="210000" />
-      <workItem from="1619113971827" duration="1480000" />
+      <workItem from="1619113971827" duration="7211000" />
     </task>
     <servers />
   </component>
@@ -160,11 +166,12 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618942839604">
+    <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1619121382502">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/-155.-1080.1920.1080@0.0.1440.900" timestamp="1617820624893" />
     <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/-350.-1080.1920.1080@0.0.1440.900" timestamp="1618942839604" />
+    <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/452.-1080.1920.1080@0.0.1440.900" timestamp="1619121382502" />
     <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1618516810946" />
     <state x="458" y="209" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617826732609">
       <screen x="0" y="0" width="1440" height="900" />

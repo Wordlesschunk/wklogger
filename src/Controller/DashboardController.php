@@ -24,7 +24,7 @@ class DashboardController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $result = $em->getRepository(Timesheet::class)->findLatestShift();
 
-        return $this->render('dashboard/index.html.twig', [
+        return $this->render('dashboard/dashboard.html.twig', [
             'timesheet' => $result,
         ]);
     }
@@ -110,38 +110,37 @@ class DashboardController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/wk", name="app_shift_wk")
-     * @param TimesheetRepository $ts
-     * @return Response
-     */
-    public function wklog(TimesheetRepository $ts): Response
-    {
-        $start_week = date("d-m-Y",strtotime('monday this week'));
-        $end_week = date("d-m-Y",strtotime('sunday this week'));
-
-        $query = $this->getDoctrine()->getRepository(Timesheet::class)
-            ->createQueryBuilder('t')
-            ->where('t.date >= :start')
-            ->andWhere('t.date <= :end')
-            ->setParameter('start', $start_week)
-            ->setParameter('end', $end_week)
-            ->getQuery();
-
-        $result = $query->getArrayResult();
-        $totalSeconds = 0;
-
-        foreach ($result as $key => $r) {
-            $start = Carbon::parse($r['startTime']);
-            $end = Carbon::parse($r['endTime']);
-            $totalDuration = $end->diffInSeconds($start);
-            $totalSeconds += $totalDuration;
-        }
-        $totalTimeWorkedPerWk = CarbonInterval::seconds($totalSeconds)->cascade()->forHumans();
-        
-        return $this->render('dashboard/dashboard.html.twig', [
-            'shiftHistory' => $result,
-        ]);
-    }
+//    /**
+//     * @Route("/wk", name="app_shift_wk")
+//     * @return Response
+//     */
+//    public function wklog(TimesheetRepository $ts): Response
+//    {
+//        $start_week = date("d-m-Y",strtotime('monday this week'));
+//        $end_week = date("d-m-Y",strtotime('sunday this week'));
+//
+//        $query = $this->getDoctrine()->getRepository(Timesheet::class)
+//            ->createQueryBuilder('t')
+//            ->where('t.date >= :start')
+//            ->andWhere('t.date <= :end')
+//            ->setParameter('start', $start_week)
+//            ->setParameter('end', $end_week)
+//            ->getQuery();
+//
+//        $result = $query->getArrayResult();
+//        $totalSeconds = 0;
+//
+//        foreach ($result as $key => $r) {
+//            $start = Carbon::parse($r['startTime']);
+//            $end = Carbon::parse($r['endTime']);
+//            $totalDuration = $end->diffInSeconds($start);
+//            $totalSeconds += $totalDuration;
+//        }
+//        $totalTimeWorkedPerWk = CarbonInterval::seconds($totalSeconds)->cascade()->forHumans();
+//
+//        return $this->render('dashboard/dashboard.html.twig', [
+//            'shiftHistory' => $result,
+//        ]);
+//    }
 
 }

@@ -1,0 +1,72 @@
+<nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="sidenavAccordion">
+
+    <a class="navbar-brand" href="{{ path('app_dashboard') }}">Wklogger</a>
+    <!-- Sidenav Toggle Button-->
+    <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle"><i data-feather="menu"></i></button>
+
+    <!-- Navbar Items-->
+    <ul class="navbar-nav align-items-center ml-auto">
+        <!-- User Dropdown-->
+{#        <li class="nav-item dropdown no-caret mr-3 mr-lg-0 dropdown-user">#}
+{#            <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage"#}
+{#               href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true"#}
+{#               aria-expanded="false"><img class="img-fluid" src="assets/img/illustrations/profiles/profile-1.png"/></a>#}
+{#            <div class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up"#}
+{#                 aria-labelledby="navbarDropdownUserImage">#}
+{#                <h6 class="dropdown-header d-flex align-items-center">#}
+{#                    <img class="dropdown-user-img" src="assets/img/illustrations/profiles/profile-1.png"/>#}
+{#                    <div class="dropdown-user-details">#}
+{#                        <div class="dropdown-user-details-name">Valerie Luna</div>#}
+{#                        <div class="dropdown-user-details-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6f19031a010e2f0e0003410c0002">[email&#160;protected]</a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </h6>#}
+{#                <div class="dropdown-divider"></div>#}
+{#                <a class="dropdown-item" href="#!">#}
+{#                    <div class="dropdown-item-icon"><i data-feather="settings"></i></div>#}
+{#                    Account#}
+{#                </a>#}
+{#                <a class="dropdown-item" href="#!">#}
+{#                    <div class="dropdown-item-icon"><i data-feather="log-out"></i></div>#}
+{#                    Logout#}
+{#                </a>#}
+{#            </div>#}
+{#        </li>#}
+    </ul>
+</nav>
+
+<!-- Sidebar setup -->
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <nav class="sidenav shadow-right sidenav-light">
+            <div class="sidenav-menu">
+                <div class="nav accordion" id="accordionSidenav">
+                    <!-- Sidenav Menu Heading (Core)-->
+                    <div class="sidenav-menu-heading">Core</div>
+                    <!-- Sidenav Accordion (Dashboard)-->
+                    <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse"
+                       data-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards">
+                        <div class="nav-link-icon"><i data-feather="activity"></i></div>
+                        Dashboards
+                        <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseDashboards" data-parent="#accordionSidenav">
+                        <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
+                            <a class="nav-link" href="index.html">
+                                Default
+                            </a>
+                            <a class="nav-link">yes</a>
+                            <a class="nav-link">yes</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!-- Sidenav Footer-->
+            {# <div class="sidenav-footer"> #}
+            {# <div class="sidenav-footer-content"> #}
+            {# <div class="sidenav-footer-subtitle">Logged in as:</div> #}
+            {# <div class="sidenav-footer-title">USER NAME</div> #}
+            {# </div> #}
+            {# </div> #}
+        </nav>
+    </div>
