@@ -15,7 +15,6 @@
                                 &#xB7; {{ 'now'|date('F d, Y') }} &#xB7; {{ 'now'|date("H:i", "Europe/London") }}
                             </div>
                         </div>
-
                         {% if timesheet is empty %}
                             <a class="btn btn-success"  href="{{ path('app_timesheet_start_shift') }}" role="button"><span>Start Shift</span></a>
                         {% endif %}

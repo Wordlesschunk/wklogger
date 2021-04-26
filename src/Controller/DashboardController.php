@@ -24,32 +24,35 @@ class DashboardController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $result = $em->getRepository(Timesheet::class)->findLatestShift();
 
+        //todo this logic needs to be moved out of this method because it was causing issues with
+        //todo    starting and stopping a shift, there should be a method called populate dashboard for this.
+//        $start_week = date("d-m-Y",strtotime('monday this week'));
+//        $end_week = date("d-m-Y",strtotime('sunday this week'));
+//
+//        $query = $this->getDoctrine()->getRepository(Timesheet::class)
+//            ->createQueryBuilder('t')
+//            ->where('t.date >= :start')
+//            ->andWhere('t.date <= :end')
+//            ->setParameter('start', $start_week)
+//            ->setParameter('end', $end_week)
+//            ->getQuery();
+//
+//        $result = $query->getArrayResult();
+//        $totalSeconds = 0;
+//
+//        dump($result);
+//        foreach ($result as $key => $r) {
+//            $start = Carbon::parse($r['startTime']);
+//            $end = Carbon::parse($r['endTime']);
+//            $totalDuration = $end->diffInSeconds($start);
+//            $totalSeconds += $totalDuration;
+//        }
+//        $totalTimeWorkedPerWk = CarbonInterval::seconds($totalSeconds)->cascade()->forHumans();
 
-        $start_week = date("d-m-Y",strtotime('monday this week'));
-        $end_week = date("d-m-Y",strtotime('sunday this week'));
-
-        $query = $this->getDoctrine()->getRepository(Timesheet::class)
-            ->createQueryBuilder('t')
-            ->where('t.date >= :start')
-            ->andWhere('t.date <= :end')
-            ->setParameter('start', $start_week)
-            ->setParameter('end', $end_week)
-            ->getQuery();
-
-        $result = $query->getArrayResult();
-        $totalSeconds = 0;
-
-        foreach ($result as $key => $r) {
-            $start = Carbon::parse($r['startTime']);
-            $end = Carbon::parse($r['endTime']);
-            $totalDuration = $end->diffInSeconds($start);
-            $totalSeconds += $totalDuration;
-        }
-        $totalTimeWorkedPerWk = CarbonInterval::seconds($totalSeconds)->cascade()->forHumans();
 
         return $this->render('dashboard/dashboard.html.twig', [
             'timesheet' => $result,
-            'hoursPerWk' => $totalTimeWorkedPerWk,
+            'hoursPerWk' => 'totalhours',
         ]);
     }
 
@@ -83,56 +86,56 @@ class DashboardController extends AbstractController
 
         return $this->redirectToRoute('app_dashboard');
     }
-
-    /**
-     * @Route("/log", name="app_shift_log")
-     * @return Response
-     */
-    public function shiftLog(ChartBuilderInterface $chartBuilder): Response
-    {
-        $result = [];
-
-        $query = $this->getDoctrine()->getRepository(Timesheet::class)
-            ->createQueryBuilder('ts')
-            ->getQuery();
-
-        $result = $query->getArrayResult();
-
-        foreach ($result as $key => $r) {
-            $startTime = $r['startTime'];
-            $endTime = $r['endTime'];
-            $interval = $startTime->diff($endTime);
-            $result[$key]['duration'] = $interval->format('%h Hours %i Minutes');
-        }
-
-        $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
-        $chart->setData([
-            'labels' => ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            'datasets' => [
-                [
-                    'label' => 'Sales!',
-                    'backgroundColor' => 'rgb(255, 99, 132)',
-                    'borderColor' => 'rgb(255, 99, 132)',
-                    'data' => [522, 1500, 2250, 2197, 2345, 3122, 3099],
-                ],
-            ],
-        ]);
-        $chart->setOptions([
-            'scales' => [
-                'yAxes' => [[
-                    'ticks' => [
-                        'beginAtZero' => true
-                    ]
-                ]]
-            ]
-        ]);
-
-
-        return $this->render('dashboard/shiftlog.html.twig', [
-            'shiftHistory' => $result,
-            'chart' => $chart
-        ]);
-    }
+//
+//    /**
+//     * @Route("/log", name="app_shift_log")
+//     * @return Response
+//     */
+//    public function shiftLog(ChartBuilderInterface $chartBuilder): Response
+//    {
+//        $result = [];
+//
+//        $query = $this->getDoctrine()->getRepository(Timesheet::class)
+//            ->createQueryBuilder('ts')
+//            ->getQuery();
+//
+//        $result = $query->getArrayResult();
+//
+//        foreach ($result as $key => $r) {
+//            $startTime = $r['startTime'];
+//            $endTime = $r['endTime'];
+//            $interval = $startTime->diff($endTime);
+//            $result[$key]['duration'] = $interval->format('%h Hours %i Minutes');
+//        }
+//
+//        $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
+//        $chart->setData([
+//            'labels' => ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+//            'datasets' => [
+//                [
+//                    'label' => 'Sales!',
+//                    'backgroundColor' => 'rgb(255, 99, 132)',
+//                    'borderColor' => 'rgb(255, 99, 132)',
+//                    'data' => [522, 1500, 2250, 2197, 2345, 3122, 3099],
+//                ],
+//            ],
+//        ]);
+//        $chart->setOptions([
+//            'scales' => [
+//                'yAxes' => [[
+//                    'ticks' => [
+//                        'beginAtZero' => true
+//                    ]
+//                ]]
+//            ]
+//        ]);
+//
+//
+//        return $this->render('dashboard/shiftlog.html.twig', [
+//            'shiftHistory' => $result,
+//            'chart' => $chart
+//        ]);
+//    }
 
 //    /**
 //     * @Route("/wk", name="app_shift_wk")
