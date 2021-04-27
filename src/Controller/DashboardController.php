@@ -25,6 +25,7 @@ class DashboardController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $panels = new DashboardPanels($em);
         $result = $em->getRepository(Timesheet::class)->findLatestShift();
+//todo needing to add a method called load panels it will check to see if the panels can be loaded or not
 
         return $this->render('dashboard/dashboard.html.twig', [
             'timesheet' => $result,

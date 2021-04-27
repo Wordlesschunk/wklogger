@@ -41,7 +41,7 @@ class DashboardPanels
         $end = Carbon::parse($result['endTime']);
         $today = $start->diffInSeconds($end);
 
-        return CarbonInterval::seconds($today)->cascade()->forHumans();
+        return CarbonInterval::seconds($today)->cascade()->format('%h hours %i minutes');
     }
 
     /**
@@ -70,7 +70,7 @@ class DashboardPanels
             $totalSeconds += $totalDuration;
         }
 
-        return CarbonInterval::seconds($totalSeconds)->cascade()->forHumans();
+        return CarbonInterval::seconds($totalSeconds)->cascade()->format('%h hours %i minutes');
     }
 
     /**

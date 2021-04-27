@@ -14,7 +14,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DashboardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/DashboardPanels.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/DashboardPanels.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/dashboard.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +115,8 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
+    <property name="database.data.extractors.current.id" value="SQL Inserts" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Services" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -186,6 +187,14 @@
     </state>
     <state x="398" y="180" key="NewPhpClassDialog/0.0.1440.900/-155.-1080.1920.1080@0.0.1440.900" timestamp="1617826739501" />
     <state x="398" y="180" key="NewPhpClassDialog/0.0.1440.900/452.-1080.1920.1080@0.0.1440.900" timestamp="1619114026567" />
+    <state x="308" y="89" key="com.intellij.database.dbimport.ImportDialog" timestamp="1619549324039">
+      <screen x="0" y="25" width="1440" height="811" />
+    </state>
+    <state x="308" y="89" key="com.intellij.database.dbimport.ImportDialog/0.25.1440.811/-350.-1055.1920.1055@0.25.1440.811" timestamp="1619549324039" />
+    <state x="458" y="239" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog" timestamp="1619549319268">
+      <screen x="0" y="25" width="1440" height="811" />
+    </state>
+    <state x="458" y="239" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog/0.25.1440.811/-350.-1055.1920.1055@0.25.1440.811" timestamp="1619549319268" />
     <state x="-7" y="144" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1618516357264">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -194,6 +203,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="343" y="64" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900/-155.-1080.1920.1080@0.0.1440.900" timestamp="1617826731079" />
+    <state x="469" y="325" key="data.grid.dml.preview.dialog" timestamp="1619550712671">
+      <screen x="0" y="25" width="1440" height="811" />
+    </state>
+    <state x="469" y="325" key="data.grid.dml.preview.dialog/0.25.1440.811/-350.-1055.1920.1055@0.25.1440.811" timestamp="1619550712671" />
     <state x="421" y="205" width="597" height="490" key="find.popup" timestamp="1617825211908">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
