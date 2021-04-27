@@ -30,6 +30,7 @@ class DashboardController extends AbstractController
             'timesheet' => $result,
             'hoursToday' => $panels->hrsToday(),
             'hoursPerWk' => $panels->hrsThisWeek(),
+            'hoursPerMo' => $panels->hrsThisMonth(),
         ]);
     }
 

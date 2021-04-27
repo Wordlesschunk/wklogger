@@ -40,7 +40,7 @@ class DashboardPanels
         $start = Carbon::parse($result['startTime']);
         $end = Carbon::parse($result['endTime']);
         $today = $start->diffInSeconds($end);
-        
+
         return CarbonInterval::seconds($today)->cascade()->forHumans();
     }
 
@@ -72,4 +72,34 @@ class DashboardPanels
 
         return CarbonInterval::seconds($totalSeconds)->cascade()->forHumans();
     }
+
+    /**
+     * @return string
+     */
+    public function hrsThisMonth()
+    {
+        $startOfMo = Carbon::now()->startOfMonth()->format('Y-m-d');
+        $endOfMo = Carbon::now()->endOfMonth()->format('Y-m-d');
+        //todo this needs to be a repo method so you can call all time entries within a week
+        $query = $this->entityManager->getRepository(Timesheet::class)
+            ->createQueryBuilder('t')
+            ->where('t.date >= :start')
+            ->andWhere('t.date <= :end')
+            ->setParameter('start', $startOfMo)
+            ->setParameter('end', $endOfMo)
+            ->getQuery();
+
+        $result = $query->getArrayResult();
+        $totalSeconds = 0;
+
+        foreach ($result as $key => $r) {
+            $start = Carbon::parse($r['startTime']);
+            $end = Carbon::parse($r['endTime']);
+            $totalDuration = $end->diffInSeconds($start);
+            $totalSeconds += $totalDuration;
+        }
+
+        return CarbonInterval::seconds($totalSeconds)->cascade()->forHumans();
+    }
+
 }
