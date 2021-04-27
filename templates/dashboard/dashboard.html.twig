@@ -20,7 +20,7 @@
                         {% endif %}
 
                         {% for data in timesheet %}
-                            {% if data.date|date('Y-m-d') != 'now'|date('Y-m-d') %}
+                            {% if data.date|date('d-m-Y') != 'now'|date('d-m-Y') %}
                                 <a class="btn btn-success"  href="{{ path('app_timesheet_start_shift') }}" role="button"><span>Start Shift</span></a>
                             {% elseif data.endTime is not null %}
                                 {# <div class="alert alert-danger" role="alert">You've already submitted a shift today!</div> #}
@@ -38,10 +38,10 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <div class="medium font-weight-bold text-primary mb-1">Worked This Week</div>
-                                            <div class="h1">{{ hoursPerWk }}</div>
-                                            <div class="text-s font-weight-bold text-success d-inline-flex align-items-center">
-                                                <i class="mr-1" data-feather="trending-up"></i>
+                                            <div class="medium font-weight-bold text-primary mb-1">Worked Today</div>
+                                            <div class="h1">{{ hoursToday }}</div>
+                                            <div class="text-s font-weight-bold text-danger d-inline-flex align-items-center">
+                                                <i class="mr-1" data-feather="trending-down"></i>
                                                 0%
                                             </div>
                                         </div>
@@ -55,10 +55,10 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <div class="medium font-weight-bold text-primary mb-1">Worked Today</div>
-                                            <div class="h1">00 Hours 00 Minutes</div>
-                                            <div class="text-s font-weight-bold text-danger d-inline-flex align-items-center">
-                                                <i class="mr-1" data-feather="trending-down"></i>
+                                            <div class="medium font-weight-bold text-primary mb-1">Worked This Week</div>
+                                            <div class="h1">{{ hoursPerWk }}</div>
+                                            <div class="text-s font-weight-bold text-success d-inline-flex align-items-center">
+                                                <i class="mr-1" data-feather="trending-up"></i>
                                                 0%
                                             </div>
                                         </div>

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Timesheet;
 use App\Repository\TimesheetRepository;
+use App\Services\DashboardPanels;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
 use Doctrine\ORM\EntityManagerInterface;
@@ -22,37 +23,13 @@ class DashboardController extends AbstractController
     public function index(): Response
     {
         $em = $this->getDoctrine()->getManager();
+        $panels = new DashboardPanels($em);
         $result = $em->getRepository(Timesheet::class)->findLatestShift();
-
-        //todo this logic needs to be moved out of this method because it was causing issues with
-        //todo    starting and stopping a shift, there should be a method called populate dashboard for this.
-//        $start_week = date("d-m-Y",strtotime('monday this week'));
-//        $end_week = date("d-m-Y",strtotime('sunday this week'));
-//
-//        $query = $this->getDoctrine()->getRepository(Timesheet::class)
-//            ->createQueryBuilder('t')
-//            ->where('t.date >= :start')
-//            ->andWhere('t.date <= :end')
-//            ->setParameter('start', $start_week)
-//            ->setParameter('end', $end_week)
-//            ->getQuery();
-//
-//        $result = $query->getArrayResult();
-//        $totalSeconds = 0;
-//
-//        dump($result);
-//        foreach ($result as $key => $r) {
-//            $start = Carbon::parse($r['startTime']);
-//            $end = Carbon::parse($r['endTime']);
-//            $totalDuration = $end->diffInSeconds($start);
-//            $totalSeconds += $totalDuration;
-//        }
-//        $totalTimeWorkedPerWk = CarbonInterval::seconds($totalSeconds)->cascade()->forHumans();
-
 
         return $this->render('dashboard/dashboard.html.twig', [
             'timesheet' => $result,
-            'hoursPerWk' => 'totalhours',
+            'hoursToday' => $panels->hrsToday(),
+            'hoursPerWk' => $panels->hrsThisWeek(),
         ]);
     }
 
@@ -64,7 +41,7 @@ class DashboardController extends AbstractController
     public function start(EntityManagerInterface $entityManager)
     {
         $newTimesheetEntry = new Timesheet();
-        $newTimesheetEntry->setDate(date('d-m-Y'));
+        $newTimesheetEntry->setDate(date('Y-m-d'));
         $newTimesheetEntry->setStartTime(new \DateTime('now'));
         $entityManager->persist($newTimesheetEntry);
         $entityManager->flush();
@@ -79,7 +56,7 @@ class DashboardController extends AbstractController
      */
     public function end(EntityManagerInterface $entityManager)
     {
-        $currentDate = date('d-m-Y');
+        $currentDate = date('Y-m-d');
         $repository = $entityManager->getRepository(Timesheet::class)->findOneBy(['date' => $currentDate]);
         $repository->setEndTime(new \DateTime('now'));
         $entityManager->flush();
