@@ -11,6 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9103e740-9fab-499d-963f-744fe8a3bacd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/DashboardPanels.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/DashboardPanels.php" afterDir="false" />
     </list>
@@ -148,7 +149,7 @@
       <workItem from="1619452245913" duration="885000" />
       <workItem from="1619552394693" duration="495000" />
       <workItem from="1619629209614" duration="64000" />
-      <workItem from="1619639967571" duration="54000" />
+      <workItem from="1619639967571" duration="324000" />
     </task>
     <servers />
   </component>
