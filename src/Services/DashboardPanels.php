@@ -71,8 +71,6 @@ class DashboardPanels
             $totalDuration = $end->diffInSeconds($start);
             $totalSeconds += $totalDuration;
         }
-        
-        dd($totalSeconds);
 
 
         return Carbon::parse($totalSeconds)->format( 'H:i:s');
