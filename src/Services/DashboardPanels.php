@@ -51,6 +51,7 @@ class DashboardPanels
     {
         $startOfWk = Carbon::now()->startOfWeek()->format('Y-m-d');
         $endOfWk = Carbon::now()->endOfWeek()->format('Y-m-d');
+
         //todo this needs to be a repo method so you can call all time entries within a week
         $query = $this->entityManager->getRepository(Timesheet::class)
             ->createQueryBuilder('t')
@@ -61,6 +62,7 @@ class DashboardPanels
             ->getQuery();
 
         $result = $query->getArrayResult();
+        dd($result);
         $totalSeconds = 0;
 
         foreach ($result as $key => $r) {
