@@ -70,7 +70,7 @@ class DashboardPanels
             $totalSeconds += $totalDuration;
         }
 
-        return CarbonInterval::seconds($totalSeconds)->cascade()->format('%h Hours %i Minutes');
+        return CarbonInterval::seconds($totalSeconds)->cascade()->forHumans(['parts' => 2]);
     }
 
     /**
