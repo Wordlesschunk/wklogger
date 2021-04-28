@@ -62,7 +62,7 @@ class DashboardPanels
             ->getQuery();
 
         $result = $query->getArrayResult();
-        dd($result);
+
         $totalSeconds = 0;
 
         foreach ($result as $key => $r) {
