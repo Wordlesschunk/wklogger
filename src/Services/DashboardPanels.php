@@ -53,11 +53,8 @@ class DashboardPanels
             $totalSeconds += $totalDuration;
         }
 
-        $init = $totalSeconds;
-        $hours = floor($init / 3600);
-        $minutes = floor(($init / 60) % 60);
 
-        return sprintf('%d Hours %s Minutes', $hours, $minutes);
+        return Carbon::parse($totalSeconds)->format( 'H:i:s');
     }
 
     /**
