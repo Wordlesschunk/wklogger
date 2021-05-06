@@ -12,6 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9103e740-9fab-499d-963f-744fe8a3bacd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/TimesheetRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TimesheetRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/DashboardPanels.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/DashboardPanels.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,6 +104,13 @@
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation" />
       <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-guard" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
     </include_path>
   </component>
   <component name="ProjectId" id="1qqrjRfdKBS5t88TKIzahc4MLLi" />
@@ -118,6 +126,7 @@
     <property name="database.data.extractors.current.id" value="SQL Inserts" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Services" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -168,18 +177,19 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="320" y="126" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1619640020853">
+    <state x="320" y="126" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1620330753848">
       <screen x="0" y="25" width="1440" height="811" />
     </state>
     <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/-155.-1080.1920.1080@0.0.1440.900" timestamp="1617820624893" />
     <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/-350.-1080.1920.1080@0.0.1440.900" timestamp="1619452556164" />
     <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/452.-1080.1920.1080@0.0.1440.900" timestamp="1619121382502" />
     <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1618516810946" />
-    <state x="320" y="126" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.811/-350.-1055.1920.1055@0.25.1440.811" timestamp="1619640020853" />
-    <state x="458" y="209" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617826732609">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="320" y="126" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.811/-350.-1055.1920.1055@0.25.1440.811" timestamp="1620330753848" />
+    <state x="458" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1620329663069">
+      <screen x="0" y="25" width="1440" height="811" />
     </state>
     <state x="458" y="209" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900/-155.-1080.1920.1080@0.0.1440.900" timestamp="1617826732609" />
+    <state x="458" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.811/-350.-1055.1920.1055@0.25.1440.811" timestamp="1620329663069" />
     <state width="307" height="457" key="HiddenNamespacesPopup" timestamp="1617820629549">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -189,6 +199,14 @@
     </state>
     <state x="398" y="180" key="NewPhpClassDialog/0.0.1440.900/-155.-1080.1920.1080@0.0.1440.900" timestamp="1617826739501" />
     <state x="398" y="180" key="NewPhpClassDialog/0.0.1440.900/452.-1080.1920.1080@0.0.1440.900" timestamp="1619114026567" />
+    <state x="458" y="137" key="RollbackChangesDialog" timestamp="1620330553661">
+      <screen x="0" y="25" width="1440" height="811" />
+    </state>
+    <state x="458" y="137" key="RollbackChangesDialog/0.25.1440.811/-350.-1055.1920.1055@0.25.1440.811" timestamp="1620330553661" />
+    <state x="229" y="98" key="SettingsEditor" timestamp="1620329573010">
+      <screen x="0" y="25" width="1440" height="811" />
+    </state>
+    <state x="229" y="98" key="SettingsEditor/0.25.1440.811/-350.-1055.1920.1055@0.25.1440.811" timestamp="1620329573010" />
     <state x="308" y="89" key="com.intellij.database.dbimport.ImportDialog" timestamp="1619549324039">
       <screen x="0" y="25" width="1440" height="811" />
     </state>

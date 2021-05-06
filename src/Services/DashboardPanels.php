@@ -29,13 +29,7 @@ class DashboardPanels
      */
     public function hrsToday()
     {
-        $query = $this->entityManager->getRepository(Timesheet::class)
-            ->createQueryBuilder('t')
-            ->orderBy('t.id', 'DESC')
-            ->setMaxResults(1)
-            ->getQuery();
-
-        $result = $query->getOneOrNullResult(Query::HYDRATE_ARRAY);
+        $result = $this->entityManager->getRepository(Timesheet::class)->fetchLatestShift();
 
         $start = Carbon::parse($result['startTime']);
         $end = Carbon::parse($result['endTime']);
@@ -49,20 +43,7 @@ class DashboardPanels
      */
     public function hrsThisWeek()
     {
-        $startOfWk = Carbon::now()->startOfWeek()->format('Y-m-d');
-        $endOfWk = Carbon::now()->endOfWeek()->format('Y-m-d');
-
-        //todo this needs to be a repo method so you can call all time entries within a week
-        $query = $this->entityManager->getRepository(Timesheet::class)
-            ->createQueryBuilder('t')
-            ->where('t.date >= :start')
-            ->andWhere('t.date <= :end')
-            ->setParameter('start', $startOfWk)
-            ->setParameter('end', $endOfWk)
-            ->getQuery();
-
-        $result = $query->getArrayResult();
-
+        $result = $this->entityManager->getRepository(Timesheet::class)->fetchShiftsInWeek();
         $totalSeconds = 0;
 
         foreach ($result as $key => $r) {
@@ -84,18 +65,7 @@ class DashboardPanels
      */
     public function hrsThisMonth()
     {
-        $startOfMo = Carbon::now()->startOfMonth()->format('Y-m-d');
-        $endOfMo = Carbon::now()->endOfMonth()->format('Y-m-d');
-        //todo this needs to be a repo method so you can call all time entries within a week
-        $query = $this->entityManager->getRepository(Timesheet::class)
-            ->createQueryBuilder('t')
-            ->where('t.date >= :start')
-            ->andWhere('t.date <= :end')
-            ->setParameter('start', $startOfMo)
-            ->setParameter('end', $endOfMo)
-            ->getQuery();
-
-        $result = $query->getArrayResult();
+        $result = $this->entityManager->getRepository(Timesheet::class)->fetchShiftsInMonth();
         $totalSeconds = 0;
 
         foreach ($result as $key => $r) {
