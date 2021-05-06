@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Timesheet;
 use Carbon\Carbon;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -35,7 +36,9 @@ class TimesheetRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return int|mixed|string
+     * @return int|mixed|string|null
+     *
+     * @throws NonUniqueResultException
      */
     public function fetchLatestShift()
     {

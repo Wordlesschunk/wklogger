@@ -12,7 +12,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9103e740-9fab-499d-963f-744fe8a3bacd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/DashboardPanels.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/DashboardPanels.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/TimesheetRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TimesheetRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/DashboardPanels.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Timesheet/ShiftHoursCalculator.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,16 +131,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Services" />
-      <recent name="$PROJECT_DIR$/templates/dashboard" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Services/Timesheet" />
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/src/Repository" />
       <recent name="$PROJECT_DIR$/src/Entity" />
       <recent name="$PROJECT_DIR$/src/Controller" />
-      <recent name="$PROJECT_DIR$/migrations" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Services" />
+      <recent name="$PROJECT_DIR$/templates/dashboard" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -184,6 +186,10 @@
     <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/452.-1080.1920.1080@0.0.1440.900" timestamp="1619121382502" />
     <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1618516810946" />
     <state x="320" y="126" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.811/-350.-1055.1920.1055@0.25.1440.811" timestamp="1620330753848" />
+    <state x="0" y="25" width="814" height="811" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1620332924474">
+      <screen x="0" y="25" width="1440" height="811" />
+    </state>
+    <state x="0" y="25" width="814" height="811" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.25.1440.811/-350.-1055.1920.1055@0.25.1440.811" timestamp="1620332924474" />
     <state x="458" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1620329663069">
       <screen x="0" y="25" width="1440" height="811" />
     </state>

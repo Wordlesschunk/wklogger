@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Timesheet;
 
 use App\Entity\Timesheet;
-use App\Repository\TimesheetRepository;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Query;
 
-class DashboardPanels
+class ShiftHoursCalculator
 {
     /**
      * @var EntityManagerInterface
@@ -20,7 +18,8 @@ class DashboardPanels
      * DashboardPanels constructor.
      * @param EntityManagerInterface $entityManager
      */
-    public function __construct(EntityManagerInterface $entityManager){
+    public function __construct(EntityManagerInterface $entityManager)
+    {
         $this->entityManager = $entityManager;
     }
 
@@ -35,7 +34,7 @@ class DashboardPanels
         $end = Carbon::parse($result['endTime']);
         $today = $start->diffInSeconds($end);
 
-        return CarbonInterval::seconds($today)->cascade()->format('%h hours %i minutes');
+        return CarbonInterval::seconds($today)->cascade()->format('%h Hours %i Minutes');
     }
 
     /**
@@ -52,6 +51,7 @@ class DashboardPanels
             $totalDuration = $end->diffInSeconds($start);
             $totalSeconds += $totalDuration;
         }
+
         $init = $totalSeconds;
         $hours = floor($init / 3600);
         $minutes = floor(($init / 60) % 60);

@@ -3,17 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Timesheet;
-use App\Repository\TimesheetRepository;
-use App\Services\DashboardPanels;
-use Carbon\Carbon;
-use Carbon\CarbonInterval;
+use App\Services\Timesheet\ShiftHoursCalculator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
-use Symfony\UX\Chartjs\Model\Chart;
 
 class DashboardController extends AbstractController
 {
@@ -23,7 +18,7 @@ class DashboardController extends AbstractController
     public function index(): Response
     {
         $em = $this->getDoctrine()->getManager();
-        $panels = new DashboardPanels($em);
+        $panels = new ShiftHoursCalculator($em);
         $result = $em->getRepository(Timesheet::class)->findLatestShift();
 //todo needing to add a method called load panels it will check to see if the panels can be loaded or not
 
