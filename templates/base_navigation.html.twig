@@ -47,16 +47,16 @@
                     <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse"
                        data-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards">
                         <div class="nav-link-icon"><i data-feather="activity"></i></div>
-                        Dashboards
+                        Time Logger
                         <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                     <div class="collapse" id="collapseDashboards" data-parent="#accordionSidenav">
                         <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
-                            <a class="nav-link" href="index.html">
-                                Default
+                            <a class="nav-link" href="{{ path('app_dashboard') }}">
+                                Dashboard
                             </a>
-                            <a class="nav-link">yes</a>
-                            <a class="nav-link">yes</a>
+                            <a class="nav-link" href="{{ path('app_log') }}">Shift History</a>
+                            <a class="nav-link">Other</a>
                         </nav>
                     </div>
                 </div>

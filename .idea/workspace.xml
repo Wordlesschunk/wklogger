@@ -11,6 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9103e740-9fab-499d-963f-744fe8a3bacd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/config/packages/dev/debug.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/wklogger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/wklogger.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -20,6 +21,7 @@
       <change beforePath="$PROJECT_DIR$/src/Controller/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DashboardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/TimesheetRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TimesheetRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base_navigation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base_navigation.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/dashboard/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/list.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,6 +145,16 @@
       <recent name="$PROJECT_DIR$/src/Services" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="base_navigation.html.twig" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/wklogger/templates/base_navigation.html.twig" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.base_navigation.html.twig" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -159,7 +171,7 @@
       <workItem from="1619552394693" duration="495000" />
       <workItem from="1619629209614" duration="64000" />
       <workItem from="1619639967571" duration="1966000" />
-      <workItem from="1620665453389" duration="6719000" />
+      <workItem from="1620665453389" duration="7792000" />
     </task>
     <servers />
   </component>
@@ -197,6 +209,22 @@
     </state>
     <state x="458" y="209" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900/-155.-1080.1920.1080@0.0.1440.900" timestamp="1617826732609" />
     <state x="458" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.811/-350.-1055.1920.1055@0.25.1440.811" timestamp="1620673394993" />
+    <state width="1398" height="207" key="GridCell.Tab.0.bottom" timestamp="1620674705712">
+      <screen x="0" y="25" width="1440" height="811" />
+    </state>
+    <state width="1398" height="207" key="GridCell.Tab.0.bottom/0.25.1440.811/-350.-1055.1920.1055@0.25.1440.811" timestamp="1620674705712" />
+    <state width="1398" height="207" key="GridCell.Tab.0.center" timestamp="1620674705711">
+      <screen x="0" y="25" width="1440" height="811" />
+    </state>
+    <state width="1398" height="207" key="GridCell.Tab.0.center/0.25.1440.811/-350.-1055.1920.1055@0.25.1440.811" timestamp="1620674705711" />
+    <state width="1398" height="207" key="GridCell.Tab.0.left" timestamp="1620674705709">
+      <screen x="0" y="25" width="1440" height="811" />
+    </state>
+    <state width="1398" height="207" key="GridCell.Tab.0.left/0.25.1440.811/-350.-1055.1920.1055@0.25.1440.811" timestamp="1620674705709" />
+    <state width="1398" height="207" key="GridCell.Tab.0.right" timestamp="1620674705712">
+      <screen x="0" y="25" width="1440" height="811" />
+    </state>
+    <state width="1398" height="207" key="GridCell.Tab.0.right/0.25.1440.811/-350.-1055.1920.1055@0.25.1440.811" timestamp="1620674705712" />
     <state width="307" height="457" key="HiddenNamespacesPopup" timestamp="1617820629549">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
