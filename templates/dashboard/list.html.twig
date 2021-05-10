@@ -31,7 +31,7 @@
                                     <th>Date</th>
                                     <th>Start Time</th>
                                     <th>End Time</th>
-                                    <th>Actions</th>
+{#                                    <th>Actions</th>#}
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -40,10 +40,10 @@
                                         <td>{{ data.date }}</td>
                                         <td>{{ data.startTime|date("H:i:s") }}</td>
                                         <td>{{ data.endTime|date("H:i:s") }}</td>
-                                        <td>
+{#                                        <td>#}
 {#                                            <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i data-feather="more-vertical"></i></button>#}
 {#                                            <button class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="trash-2"></i></button>#}
-                                        </td>
+{#                                        </td>#}
                                     </tr>
                                 {% endfor %}
                                 </tbody>
