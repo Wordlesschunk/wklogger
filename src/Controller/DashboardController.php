@@ -20,13 +20,23 @@ class DashboardController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $panels = new ShiftHoursCalculator($em);
         $result = $em->getRepository(Timesheet::class)->findLatestShift();
-//todo needing to add a method called load panels it will check to see if the panels can be loaded or not
 
         return $this->render('dashboard/dashboard.html.twig', [
             'timesheet' => $result,
             'hoursToday' => $panels->hrsToday(),
             'hoursPerWk' => $panels->hrsThisWeek(),
             'hoursPerMo' => $panels->hrsThisMonth(),
+        ]);
+    }
+
+    /**
+     * @Route("/logger", name="app_log")
+     */
+    public function list(): Response
+    {
+
+        return $this->render('dashboard/list.html.twig', [
+            'timesheet' => 'yes',
         ]);
     }
 

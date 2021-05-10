@@ -51,6 +51,20 @@ class TimesheetRepository extends ServiceEntityRepository
 
     /**
      * @return int|mixed[]|string
+     *
+     * @throws NonUniqueResultException
+     */
+    public function fetchShiftByToday()
+    {
+        return $this->createQueryBuilder('t')
+            ->where('t.date = :start')
+            ->setParameter('start', Carbon::now()->format('Y-m-d'))
+            ->getQuery()
+            ->getOneOrNullResult(Query::HYDRATE_ARRAY);
+    }
+
+    /**
+     * @return int|mixed[]|string
      */
     public function fetchShiftsInWeek()
     {

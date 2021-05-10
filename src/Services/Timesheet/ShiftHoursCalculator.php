@@ -28,13 +28,16 @@ class ShiftHoursCalculator
      */
     public function hrsToday()
     {
-        $result = $this->entityManager->getRepository(Timesheet::class)->fetchLatestShift();
+        $result = $this->entityManager->getRepository(Timesheet::class)->fetchShiftByToday();
 
-        $start = Carbon::parse($result['startTime']);
-        $end = Carbon::parse($result['endTime']);
-        $today = $start->diffInSeconds($end);
+        if (isset($result)) {
+            $start = Carbon::parse($result['startTime']);
+            $end = Carbon::parse($result['endTime']);
+            $today = $start->diffInSeconds($end);
 
-        return CarbonInterval::seconds($today)->cascade()->format('%h Hours %i Minutes');
+            return CarbonInterval::seconds($today)->cascade()->format('%h Hours %i Minutes');
+        }
+        return '0 Hours 0 Minutes';
     }
 
     /**
@@ -74,7 +77,10 @@ class ShiftHoursCalculator
             $totalSeconds += $totalDuration;
         }
 
-        return CarbonInterval::seconds($totalSeconds)->cascade()->forHumans();
-    }
+        $init = $totalSeconds;
+        $hours = floor($init / 3600);
+        $minutes = floor(($init / 60) % 60);
 
+        return sprintf('%d Hours %s Minutes', $hours, $minutes);
+    }
 }
