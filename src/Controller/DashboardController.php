@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Timesheet;
 use App\Services\Timesheet\ShiftHoursCalculator;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Query;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,9 +35,11 @@ class DashboardController extends AbstractController
      */
     public function list(): Response
     {
+        $em = $this->getDoctrine()->getManager();
+        $result = $em->getRepository(Timesheet::class)->fetchAllShifts();
 
         return $this->render('dashboard/list.html.twig', [
-            'timesheet' => 'yes',
+            'history' => $result,
         ]);
     }
 

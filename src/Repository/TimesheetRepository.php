@@ -80,6 +80,16 @@ class TimesheetRepository extends ServiceEntityRepository
     /**
      * @return int|mixed[]|string
      */
+    public function fetchAllShifts()
+    {
+        return $this->createQueryBuilder('t')
+            ->getQuery()
+            ->getResult(Query::HYDRATE_ARRAY);
+    }
+
+    /**
+     * @return int|mixed[]|string
+     */
     public function fetchShiftsInMonth()
     {
         return $this->createQueryBuilder('t')

@@ -11,13 +11,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9103e740-9fab-499d-963f-744fe8a3bacd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/dashboard/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/wklogger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/wklogger.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DashboardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/TimesheetRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TimesheetRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Timesheet/ShiftHoursCalculator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Timesheet/ShiftHoursCalculator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/dashboard.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/list.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,13 +111,7 @@
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation" />
       <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
-      <path value="$PROJECT_DIR$/vendor/symfony/security-guard" />
-      <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
-      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
-      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
-      <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
-      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1qqrjRfdKBS5t88TKIzahc4MLLi" />
@@ -162,7 +159,7 @@
       <workItem from="1619552394693" duration="495000" />
       <workItem from="1619629209614" duration="64000" />
       <workItem from="1619639967571" duration="1966000" />
-      <workItem from="1620665453389" duration="3631000" />
+      <workItem from="1620665453389" duration="6719000" />
     </task>
     <servers />
   </component>
@@ -195,11 +192,11 @@
       <screen x="0" y="25" width="1440" height="811" />
     </state>
     <state x="0" y="25" width="814" height="811" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.25.1440.811/-350.-1055.1920.1055@0.25.1440.811" timestamp="1620332924474" />
-    <state x="458" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1620329663069">
+    <state x="458" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1620673394993">
       <screen x="0" y="25" width="1440" height="811" />
     </state>
     <state x="458" y="209" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900/-155.-1080.1920.1080@0.0.1440.900" timestamp="1617826732609" />
-    <state x="458" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.811/-350.-1055.1920.1055@0.25.1440.811" timestamp="1620329663069" />
+    <state x="458" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.811/-350.-1055.1920.1055@0.25.1440.811" timestamp="1620673394993" />
     <state width="307" height="457" key="HiddenNamespacesPopup" timestamp="1617820629549">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
