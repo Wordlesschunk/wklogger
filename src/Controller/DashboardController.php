@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Timesheet;
+use App\Repository\TimesheetRepository;
 use App\Services\Timesheet\ShiftHoursCalculator;
+use Carbon\Carbon;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -32,11 +34,29 @@ class DashboardController extends AbstractController
         $panels = new ShiftHoursCalculator($em);
         $result = $em->getRepository(Timesheet::class)->findLatestShift();
 
+//        dd($panels->calculateComparison($panels->HRSToday(false), $panels->HRSYesterday(false)));
+//        dump($panels->HRSLastWeek(true));
+//        dump($panels->HRSToday(false));
+//        dump($panels->HRSYesterday(false));
+
         return $this->render('dashboard/dashboard.html.twig', [
             'timesheet' => $result,
-            'hoursToday' => $panels->hrsToday(),
-            'hoursPerWk' => $panels->hrsThisWeek(),
-            'hoursPerMo' => $panels->hrsThisMonth(),
+            'panelToday' => [
+                'hoursToday' => $panels->HRSToday(true),
+                'compare' => $panels->calculateComparison($panels->HRSToday(false), $panels->HRSYesterday(false)),
+                    ],
+            'panelWeek' => [
+                'hoursWeek' => $panels->HRSThisWeek(true),
+                'compare' => $panels->calculateComparison($panels->HRSThisWeek(false), $panels->HRSLastWeek(false)),
+                ],
+            'panelMonth' => [
+                'hoursMonth' => $panels->HRSThisMonth(true),
+                'compare' => $panels->calculateComparison($panels->HRSThisMonth(false), $panels->HRSLastMonth(false)),
+            ],
+
+//            'hoursToday' => $panels->HRSToday(true),
+//            'hoursPerWk' => $panels->HRSThisWeek(true),
+//            'hoursPerMo' => $panels->HRSThisMonth(true),
         ]);
     }
 

@@ -6,16 +6,19 @@ use App\Entity\Timesheet;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
 use Doctrine\ORM\EntityManagerInterface;
+use mysql_xdevapi\Exception;
 
 class ShiftHoursCalculator
 {
+    //change this value to change the time of break that is subbed
+    public const breakSeconds = 1800;
+
     /**
      * @var EntityManagerInterface
      */
     private $entityManager;
 
     /**
-     * DashboardPanels constructor.
      * @param EntityManagerInterface $entityManager
      */
     public function __construct(EntityManagerInterface $entityManager)
@@ -24,60 +27,174 @@ class ShiftHoursCalculator
     }
 
     /**
-     * @return string
+     * @param array $shifts
+     * @return int
      */
-    public function hrsToday()
+    private function calculateSecondsRaw(array $shifts): int
     {
-        $result = $this->entityManager->getRepository(Timesheet::class)->fetchShiftByToday();
+        $totalSeconds = 0;
 
-        if (isset($result)) {
-            $start = Carbon::parse($result['startTime']);
-            $end = Carbon::parse($result['endTime']);
-            $today = $start->diffInSeconds($end);
-
-            return CarbonInterval::seconds($today)->cascade()->format('%h Hours %i Minutes');
+        foreach ($shifts as $key => $r) {
+            $start = Carbon::parse($r['startTime']);
+            $end = Carbon::parse($r['endTime']);
+            $total = $end->diffInSeconds($start);
+            $subbedBreak = $total - self::breakSeconds;
+            $totalSeconds += $subbedBreak;
         }
-        return '0 Hours 0 Minutes';
+
+        return $totalSeconds;
     }
 
     /**
+     * @param int $seconds
      * @return string
      */
-    public function hrsThisWeek()
+    private function formatSecondsToText(int $seconds): string
     {
-        $result = $this->entityManager->getRepository(Timesheet::class)->fetchShiftsInWeek();
-        $totalSeconds = 0;
-
-        foreach ($result as $key => $r) {
-            $start = Carbon::parse($r['startTime']);
-            $end = Carbon::parse($r['endTime']);
-            $totalDuration = $end->diffInSeconds($start);
-            $totalSeconds += $totalDuration;
-        }
-
-        $init = $totalSeconds;
+        $init = $seconds;
         $hours = floor($init / 3600);
         $minutes = floor(($init / 60) % 60);
 
         return sprintf('%d Hours %s Minutes', $hours, $minutes);
     }
 
+    public function calculateComparison($firstTime, $secondTime)
+    {
+        if ($firstTime > $secondTime) {
+            $rawTime = $firstTime - $secondTime;
+
+            return [
+                'diff' => $this->formatSecondsToText($rawTime),
+                'status' => 0
+            ];
+
+        } elseif ($firstTime < $secondTime) {
+            $rawTime = $secondTime - $firstTime;
+
+            return [
+                'diff' => $this->formatSecondsToText($rawTime),
+                'status' => 1
+            ];
+        }
+
+        throw new Exception('Error Calculating Difference');
+    }
+
+    //====================================================================
+
     /**
+     * @param bool $formatted
      * @return string
      */
-    public function hrsThisMonth()
+    public function HRSToday(bool $formatted)
+    {
+        $result[] = $this->entityManager->getRepository(Timesheet::class)->fetchShiftByToday();
+
+        $totalSeconds = $this->calculateSecondsRaw($result);
+
+        if ($formatted) {
+            return $this->formatSecondsToText($totalSeconds);
+        }
+        return $totalSeconds;
+
+    }
+
+    /**
+     * @param bool $formatted
+     * @return string
+     */
+    public function HRSYesterday(bool $formatted)
+    {
+        $result[] = $this->entityManager->getRepository(Timesheet::class)->fetchYesterdayShift();
+
+        $totalSeconds = $this->calculateSecondsRaw($result);
+
+        if ($formatted) {
+            return $this->formatSecondsToText($totalSeconds);
+        }
+        return $totalSeconds;
+    }
+
+    /**
+     * @param bool $formatted
+     * @return string
+     */
+    public function HRSThisWeek(bool $formatted)
+    {
+        $result = $this->entityManager->getRepository(Timesheet::class)->fetchShiftsInWeek();
+        $totalSeconds = $this->calculateSecondsRaw($result);
+
+        if ($formatted) {
+            return $this->formatSecondsToText($totalSeconds);
+        }
+        return $totalSeconds;
+    }
+
+    /**
+     * @param bool $formatted
+     * @return string
+     */
+    public function HRSLastWeek(bool $formatted)
+    {
+        $result = $this->entityManager->getRepository(Timesheet::class)->fetchShiftsLastWeek();
+        $totalSeconds = $this->calculateSecondsRaw($result);
+
+        if ($formatted) {
+            return $this->formatSecondsToText($totalSeconds);
+        }
+        return $totalSeconds;
+    }
+
+    /**
+     * @param bool $formatted
+     * @return string
+     */
+    public function HRSThisMonth(bool $formatted)
     {
         $result = $this->entityManager->getRepository(Timesheet::class)->fetchShiftsInMonth();
+        $totalSeconds = $this->calculateSecondsRaw($result);
+
+        if ($formatted) {
+            return $this->formatSecondsToText($totalSeconds);
+        }
+        return $totalSeconds;
+    }
+
+    /**
+     * @param bool $formatted
+     * @return string
+     */
+    public function HRSLastMonth(bool $formatted)
+    {
+        $result = $this->entityManager->getRepository(Timesheet::class)->fetchShiftsLastMonth();
+        $totalSeconds = $this->calculateSecondsRaw($result);
+
+        if ($formatted) {
+            return $this->formatSecondsToText($totalSeconds);
+        }
+        return $totalSeconds;
+    }
+
+
+    /**
+     * @param $month
+     * @return string
+     */
+    public function hrsInMonth($month)
+    {
+        $result = $this->entityManager->getRepository(Timesheet::class)->fetchShiftsByMonth($month);
         $totalSeconds = 0;
 
         foreach ($result as $key => $r) {
             $start = Carbon::parse($r['startTime']);
             $end = Carbon::parse($r['endTime']);
-            $totalDuration = $end->diffInSeconds($start);
-            $totalSeconds += $totalDuration;
+            $total = $end->diffInSeconds($start);
+            $subbedBreak = $total - 1800;
+            $totalSeconds += $subbedBreak;
         }
 
-        $init = $totalSeconds;
+        //this is to take away 30minutes for unpaid break
+        $init = $totalSeconds - 1800;
         $hours = floor($init / 3600);
         $minutes = floor(($init / 60) % 60);
 

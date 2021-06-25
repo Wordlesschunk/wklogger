@@ -59,6 +59,20 @@ class TimesheetRepository extends ServiceEntityRepository
 
     /**
      * @return int|mixed[]|string
+     *
+     * @throws NonUniqueResultException
+     */
+    public function fetchYesterdayShift()
+    {
+        return $this->createQueryBuilder('t')
+            ->where('t.date = :start')
+            ->setParameter('start', Carbon::now()->subDay()->format('Y-m-d'))
+            ->getQuery()
+            ->getOneOrNullResult(Query::HYDRATE_ARRAY);
+    }
+
+    /**
+     * @return int|mixed[]|string
      */
     public function fetchShiftsInWeek()
     {
@@ -67,6 +81,20 @@ class TimesheetRepository extends ServiceEntityRepository
             ->andWhere('t.date <= :end')
             ->setParameter('start', Carbon::now()->startOfWeek()->format('Y-m-d'))
             ->setParameter('end', Carbon::now()->endOfWeek()->format('Y-m-d'))
+            ->getQuery()
+            ->getArrayResult();
+    }
+
+    /**
+     * @return int|mixed[]|string
+     */
+    public function fetchShiftsLastWeek()
+    {
+        return $this->createQueryBuilder('t')
+            ->where('t.date >= :start')
+            ->andWhere('t.date <= :end')
+            ->setParameter('start', Carbon::now()->startOfWeek()->subWeek()->format('Y-m-d'))
+            ->setParameter('end', Carbon::now()->endOfWeek()->subWeek()->format('Y-m-d'))
             ->getQuery()
             ->getArrayResult();
     }
@@ -91,6 +119,28 @@ class TimesheetRepository extends ServiceEntityRepository
             ->andWhere('t.date <= :end')
             ->setParameter('start', Carbon::now()->startOfMonth()->format('Y-m-d'))
             ->setParameter('end', Carbon::now()->endOfMonth()->format('Y-m-d'))
+            ->getQuery()
+            ->getArrayResult();
+    }
+
+    public function fetchShiftsByMonth($month)
+    {
+        return $this->createQueryBuilder('t')
+            ->where('t.date >= :start')
+            ->andWhere('t.date <= :end')
+            ->setParameter('start', Carbon::now()->startOfMonth()->setMonth($month)->format('Y-m-d'))
+            ->setParameter('end', Carbon::now()->endOfMonth()->setMonth($month)->format('Y-m-d'))
+            ->getQuery()
+            ->getArrayResult();
+    }
+
+    public function fetchShiftsLastMonth()
+    {
+        return $this->createQueryBuilder('t')
+            ->where('t.date >= :start')
+            ->andWhere('t.date <= :end')
+            ->setParameter('start', Carbon::now()->startOfMonth()->subMonth()->format('Y-m-d'))
+            ->setParameter('end', Carbon::now()->endOfMonth()->subMonth()->format('Y-m-d'))
             ->getQuery()
             ->getArrayResult();
     }
