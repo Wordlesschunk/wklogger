@@ -47,7 +47,7 @@
                         {% elseif panelToday.compare.status == 1 %}
                         <div class="text-s font-weight-bold text-danger d-inline-flex align-items-center">
                             <i class="mr-1" data-feather="trending-down"></i>
-                            {{ panelToday.hoursToday }}
+                            {{ panelToday.compare.diff }}
                             {% endif %}
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                         {% elseif panelWeek.compare.status == 1 %}
                         <div class="text-s font-weight-bold text-danger d-inline-flex align-items-center">
                             <i class="mr-1" data-feather="trending-down"></i>
-                            {{ panelToday.hoursWeek }}
+                            {{ panelWeek.compare.diff }}
                             {% endif %}
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                             {% elseif panelMonth.compare.status == 1 %}
                             <div class="text-s font-weight-bold text-danger d-inline-flex align-items-center">
                                 <i class="mr-1" data-feather="trending-down"></i>
-                                {{ panelMonth.hoursMonth }}
+                                {{ panelMonth.compare.diff }}
                                 {% endif %}
                             </div>
                         </div>
