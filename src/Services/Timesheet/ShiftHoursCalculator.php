@@ -4,7 +4,6 @@ namespace App\Services\Timesheet;
 
 use App\Entity\Timesheet;
 use Carbon\Carbon;
-use Carbon\CarbonInterval;
 use Doctrine\ORM\EntityManagerInterface;
 use mysql_xdevapi\Exception;
 
@@ -175,11 +174,11 @@ class ShiftHoursCalculator
         return $totalSeconds;
     }
 
-
     /**
      * @param $month
      * @return string
      */
+    //todo This method needs to be hooked up
     public function hrsInMonth($month)
     {
         $result = $this->entityManager->getRepository(Timesheet::class)->fetchShiftsByMonth($month);
