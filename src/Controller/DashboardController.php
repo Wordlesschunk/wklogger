@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Timesheet;
 use App\Services\Timesheet\ShiftHoursCalculator;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Query;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,6 +12,17 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractController
 {
+
+    /**
+     * @var EntityManagerInterface
+     */
+    private $entityManager;
+
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
+
     /**
      * @Route("/", name="app_dashboard")
      */
@@ -45,31 +55,29 @@ class DashboardController extends AbstractController
 
     /**
      * @Route("/new", name="app_timesheet_start_shift")
-     * @param EntityManagerInterface $entityManager
      * @return RedirectResponse
      */
-    public function start(EntityManagerInterface $entityManager)
+    public function start()
     {
         $newTimesheetEntry = new Timesheet();
         $newTimesheetEntry->setDate(date('Y-m-d'));
         $newTimesheetEntry->setStartTime(new \DateTime('now'));
-        $entityManager->persist($newTimesheetEntry);
-        $entityManager->flush();
+        $this->entityManager->persist($newTimesheetEntry);
+        $this->entityManager->flush();
 
         return $this->redirectToRoute('app_dashboard');
     }
 
     /**
      * @Route("/end", name="app_timesheet_end_shift")
-     * @param EntityManagerInterface $entityManager
      * @return RedirectResponse
      */
-    public function end(EntityManagerInterface $entityManager)
+    public function end()
     {
         $currentDate = date('Y-m-d');
-        $repository = $entityManager->getRepository(Timesheet::class)->findOneBy(['date' => $currentDate]);
+        $repository = $this->entityManager->getRepository(Timesheet::class)->findOneBy(['date' => $currentDate]);
         $repository->setEndTime(new \DateTime('now'));
-        $entityManager->flush();
+        $this->entityManager->flush();
 
         return $this->redirectToRoute('app_dashboard');
     }

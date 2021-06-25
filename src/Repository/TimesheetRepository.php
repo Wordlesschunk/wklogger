@@ -9,12 +9,6 @@ use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
-/**
- * @method Timesheet|null find($id, $lockMode = null, $lockVersion = null)
- * @method Timesheet|null findOneBy(array $criteria, array $orderBy = null)
- * @method Timesheet[]    findAll()
- * @method Timesheet[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
- */
 class TimesheetRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
@@ -100,30 +94,4 @@ class TimesheetRepository extends ServiceEntityRepository
             ->getQuery()
             ->getArrayResult();
     }
-
-
-//    public function findByExampleField($value)
-//    {
-//        return $this->createQueryBuilder('t')
-//            ->andWhere('t.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('t.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
-
-
-    /*
-    public function findOneBySomeField($value): ?Timesheet
-    {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }
