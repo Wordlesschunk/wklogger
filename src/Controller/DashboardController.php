@@ -33,7 +33,11 @@ class DashboardController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $panels = new ShiftHoursCalculator($em);
         $result = $em->getRepository(Timesheet::class)->findLatestShift();
-        
+
+//        dd($panels->HRSToday(false));
+//        dd($panels->HRSYesterday(true));
+//        dd($panels->calculateComparison($panels->HRSToday(false), $panels->HRSYesterday(false)));
+
         return $this->render('dashboard/dashboard.html.twig', [
             'timesheet' => $result,
             'panelToday' => [

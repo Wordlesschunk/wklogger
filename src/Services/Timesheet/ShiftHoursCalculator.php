@@ -61,7 +61,10 @@ class ShiftHoursCalculator
     public function calculateComparison($firstTime, $secondTime)
     {
         if (!$firstTime) {
-            return $this->formatSecondsToText(0);
+            return [
+                'diff' => $this->formatSecondsToText(0),
+                'status' => 0
+            ];
         }
 
         if ($firstTime > $secondTime) {

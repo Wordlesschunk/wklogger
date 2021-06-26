@@ -43,7 +43,7 @@
                     {% if panelToday.compare.status == 0 %}
                     <div class="text-s font-weight-bold text-success d-inline-flex align-items-center">
                         <i class="mr-1" data-feather="trending-up"></i>
-                            Worked {{ panelToday.compare.diff }} More
+                        Worked {{ panelToday.compare.diff }} More
                         {% elseif panelToday.compare.status == 1 %}
                         <div class="text-s font-weight-bold text-danger d-inline-flex align-items-center">
                             <i class="mr-1" data-feather="trending-down"></i>
@@ -70,7 +70,7 @@
                         {% elseif panelWeek.compare.status == 1 %}
                         <div class="text-s font-weight-bold text-danger d-inline-flex align-items-center">
                             <i class="mr-1" data-feather="trending-down"></i>
-                           Worked {{ panelWeek.compare.diff }} Less
+                            Worked {{ panelWeek.compare.diff }} Less
                             {% endif %}
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                             {% elseif panelMonth.compare.status == 1 %}
                             <div class="text-s font-weight-bold text-danger d-inline-flex align-items-center">
                                 <i class="mr-1" data-feather="trending-down"></i>
-                               Worked {{ panelMonth.compare.diff }} Less
+                                Worked {{ panelMonth.compare.diff }} Less
                                 {% endif %}
                             </div>
                         </div>

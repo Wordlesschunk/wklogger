@@ -11,12 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9103e740-9fab-499d-963f-744fe8a3bacd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/wklogger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/wklogger.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/TimesheetRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TimesheetRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/Timesheet/ShiftHoursCalculator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Timesheet/ShiftHoursCalculator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/dashboard/dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/dashboard.html.twig" afterDir="false" />
     </list>
@@ -169,7 +165,7 @@
       <workItem from="1619629209614" duration="64000" />
       <workItem from="1619639967571" duration="1966000" />
       <workItem from="1620665453389" duration="8041000" />
-      <workItem from="1624728531927" duration="5149000" />
+      <workItem from="1624728531927" duration="5915000" />
     </task>
     <servers />
   </component>
