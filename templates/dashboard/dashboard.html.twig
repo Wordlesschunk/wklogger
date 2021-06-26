@@ -43,11 +43,11 @@
                     {% if panelToday.compare.status == 0 %}
                     <div class="text-s font-weight-bold text-success d-inline-flex align-items-center">
                         <i class="mr-1" data-feather="trending-up"></i>
-                        {{ panelToday.compare.diff }}
+                            Worked {{ panelToday.compare.diff }} More
                         {% elseif panelToday.compare.status == 1 %}
                         <div class="text-s font-weight-bold text-danger d-inline-flex align-items-center">
                             <i class="mr-1" data-feather="trending-down"></i>
-                            {{ panelToday.compare.diff }}
+                            Worked {{ panelToday.compare.diff }} Less
                             {% endif %}
                         </div>
                     </div>
@@ -66,11 +66,11 @@
                     {% if panelWeek.compare.status == 0 %}
                     <div class="text-s font-weight-bold text-success d-inline-flex align-items-center">
                         <i class="mr-1" data-feather="trending-up"></i>
-                        {{ panelWeek.compare.diff }}
+                        Worked {{ panelWeek.compare.diff }} More
                         {% elseif panelWeek.compare.status == 1 %}
                         <div class="text-s font-weight-bold text-danger d-inline-flex align-items-center">
                             <i class="mr-1" data-feather="trending-down"></i>
-                            {{ panelWeek.compare.diff }}
+                           Worked {{ panelWeek.compare.diff }} Less
                             {% endif %}
                         </div>
                     </div>
@@ -89,11 +89,11 @@
                         {% if panelMonth.compare.status == 0 %}
                         <div class="text-s font-weight-bold text-success d-inline-flex align-items-center">
                             <i class="mr-1" data-feather="trending-up"></i>
-                            {{ panelMonth.compare.diff }}
+                            Worked {{ panelMonth.compare.diff }} More
                             {% elseif panelMonth.compare.status == 1 %}
                             <div class="text-s font-weight-bold text-danger d-inline-flex align-items-center">
                                 <i class="mr-1" data-feather="trending-down"></i>
-                                {{ panelMonth.compare.diff }}
+                               Worked {{ panelMonth.compare.diff }} Less
                                 {% endif %}
                             </div>
                         </div>

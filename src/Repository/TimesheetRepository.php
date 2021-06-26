@@ -54,7 +54,7 @@ class TimesheetRepository extends ServiceEntityRepository
             ->where('t.date = :start')
             ->setParameter('start', Carbon::now()->format('Y-m-d'))
             ->getQuery()
-            ->getOneOrNullResult(Query::HYDRATE_ARRAY);
+            ->getArrayResult();
     }
 
     /**
@@ -68,7 +68,7 @@ class TimesheetRepository extends ServiceEntityRepository
             ->where('t.date = :start')
             ->setParameter('start', Carbon::now()->subDay()->format('Y-m-d'))
             ->getQuery()
-            ->getOneOrNullResult(Query::HYDRATE_ARRAY);
+            ->getArrayResult();
     }
 
     /**
